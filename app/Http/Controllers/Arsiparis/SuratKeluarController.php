@@ -13,7 +13,7 @@ class SuratKeluarController extends Controller
     public function index()
     {
         $items = SuratKeluar::all();
-        $nom = BukuAgenda::where('jenis_surat', 'SuratKeluar')->orderByDesc('no_agenda')->first();
+        $nom = BukuAgenda::where('jenis_surat', 'Surat Keluar')->orderByDesc('no_agenda')->first();
         if ($nom) {
             return view('arsiparis.keluar.index', compact('items', 'nom'));
         }

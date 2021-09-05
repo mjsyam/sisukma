@@ -19,9 +19,7 @@
                         <th>Tanggal Surat</th>
                         <th>Pengirim</th>
                         <th>Ringkasan Isi</th>
-                        @if(Route::is(ARSIPARIS.'.agenda.masuk') )
-                            <th>Tujuan</th>
-                        @endif
+                        <th>Tujuan</th>
                         <th>File Surat</th>
                     </tr>
                 </thead>
@@ -33,9 +31,7 @@
                         <th>Tanggal Surat</th>
                         <th>Pengirim</th>
                         <th>Ringkasan Isi</th>
-                        @if(Route::is(ARSIPARIS.'.agenda.masuk') )
-                            <th>Tujuan</th>
-                        @endif
+                        <th>Tujuan</th>
                         <th>File Surat</th>
                     </tr>
                 </tfoot>
@@ -80,6 +76,7 @@
                                 <td>{{ $item->keluar->tanggal_ttd }}</td>
                                 <td>{{ $item->keluar->user->unit_kerja->unit }}</td>
                                 <td>{{ $item->ringkasan_isi}}</td>
+                                <td>{{ $item->keluar->tujuan_surat }}</td>
                                 <td>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">

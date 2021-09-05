@@ -21,6 +21,7 @@
                         <th>Keperluan Surat</th>
                         <th>Jenis Tata Naskah</th>
                         <th>Pejabat Penandatangan</th>
+                        <th>Tujuan Surat</th>
                         <th>Tanggal Ditandatangani</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -33,6 +34,7 @@
                         <th>Keperluan Surat</th>
                         <th>Jenis Tata Naskah</th>
                         <th>Pejabat Penandatangan</th>
+                        <th>Tujuan Surat</th>
                         <th>Tanggal Ditandatangani</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -52,6 +54,7 @@
                             @elseif($item->pejabat->role == 8)
                                 <td>Rektor</td>
                             @endif
+                            <td>{{ $item->tujuan_surat }}</td>
                             <td>{{ $item->tanggal_ttd }}</td>
                             <td>
                                 @if($item->status_surat == 0)

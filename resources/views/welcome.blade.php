@@ -107,45 +107,39 @@
                     <div class="col-lg-4 col-md-7 col-sm-9">
                         <div class="single-features mt-40">
                             <div class="features-title-icon d-flex justify-content-between">
-                                <h4 class="features-title"><a href="#">Mahasiswa</a></h4>
+                                <h4 class="features-title" style="color:#1b7ced">Mahasiswa</h4>
                                 <div class="features-icon">
                                     <i class="lni lni-brush"></i>
-                                    <img class="shape" src="{{ asset('images/mahasiswa.png') }}" alt="Shape">
                                 </div>
                             </div>
                             <div class="features-content">
-                                <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
-                                <a class="features-btn" href="#">LEARN MORE</a>
+                                <p class="text">Mahasiswa dapat membuat surat akademik dan surat terkait jurusan pada SISUKMA. Mahasiswa dapat melihat status dari pembuatan surat dan dapat mengunduh langsung surat yang telah jadi.</p>
                             </div>
                         </div> <!-- single features -->
                     </div>
                     <div class="col-lg-4 col-md-7 col-sm-9">
                         <div class="single-features mt-40">
                             <div class="features-title-icon d-flex justify-content-between">
-                                <h4 class="features-title"><a href="#">Internal ITK</a></h4>
+                                <h4 class="features-title" style="color:#1b7ced">Internal ITK</h4>
                                 <div class="features-icon">
                                     <i class="lni lni-layout"></i>
-                                    <img src="{{ asset('images/internal.png') }}" class="shape" alt="Shape">
                                 </div>
                             </div>
                             <div class="features-content">
-                                <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
-                                <a class="features-btn" href="#">LEARN MORE</a>
+                                <p class="text">Internal ITK dapat membuat surat masuk dan surat keluar yang berupa tata naskah. Internal ITK dapat melihat status dari proses persetujuan surat dan dapat mengunduh langsung surat yang telah disetujui.</p>
                             </div>
                         </div> <!-- single features -->
                     </div>
                     <div class="col-lg-4 col-md-7 col-sm-9">
                         <div class="single-features mt-40">
                             <div class="features-title-icon d-flex justify-content-between">
-                                <h4 class="features-title"><a href="#">Eksternal ITK</a></h4>
+                                <h4 class="features-title" style="color:#1b7ced">Eksternal ITK</h4>
                                 <div class="features-icon">
                                     <i class="lni lni-bolt"></i>
-                                    <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
                                 </div>
                             </div>
                             <div class="features-content">
-                                <p class="text">Short description for the ones who look for something new. Short description for the ones who look for something new.</p>
-                                <a class="features-btn" href="#">LEARN MORE</a>
+                                <p class="text">Eksternal ITK dapat mengirimkan surat langsung kepada Internal ITK melalui formulir yang ada di bawah ini</p>
                             </div>
                         </div> <!-- single features -->
                     </div>

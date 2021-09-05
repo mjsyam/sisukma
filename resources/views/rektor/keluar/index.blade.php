@@ -15,6 +15,7 @@
                         <th>Jenis Tata Naskah</th>
                         <th>Tanggal Tanda Tangan</th>
                         <th>Unit Pengajuan</th>
+                        <th>Tujuan Surat</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -27,6 +28,7 @@
                         <th>Jenis Tata Naskah</th>
                         <th>Tanggal Tanda Tangan</th>
                         <th>Unit Pengajuan</th>
+                        <th>Tujuan Surat</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -42,6 +44,7 @@
                             <td><?php $x = config('variables.jenis_tata_naskah');print_r($x[$item->jenis_tata_naskah]);?></td>
                             <td>{{ $item->tanggal_ttd }}</td>
                             <td>{{ $item->user->unit_kerja->unit }}</td>
+                            <td>{{ $item->tujuan_surat }}</td>
                             <td>
                                 @if($item->status_surat == 0)
                                 <mark style="background-color: black; color: white;">

@@ -23,6 +23,7 @@ class CreateTableSuratKeluar extends Migration
             $table->string('jenis_tata_naskah', 191);
             $table->string('keperluan_surat', 191);
             $table->string('pejabat_penandatangan', 191);
+            $table->string('tujuan_surat', 191);
             $table->string('tanggal_ttd', 191);
             $table->string('file_surat', 191);
             $table->tinyInteger('status_surat');

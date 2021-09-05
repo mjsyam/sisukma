@@ -15,6 +15,7 @@
                         <th>Jenis Tata Naskah</th>
                         <th>Pejabat Penandatangan</th>
                         <th>Unit Pengajuan</th>
+                        <th>Tujuan Surat</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -27,6 +28,7 @@
                         <th>Jenis Tata Naskah</th>
                         <th>Pejabat Penandatangan</th>
                         <th>Unit Pengajuan</th>
+                        <th>Tujuan Surat</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -46,6 +48,7 @@
                                 <td>Rektor</td>
                             @endif
                             <td>{{ $item->user->unit_kerja->unit}}</td>
+                            <td>{{ $item->tujuan_surat }}</td>
                             <td>
                                 @if($item->status_surat == 0)
                                 <mark style="background-color: black; color: white;">

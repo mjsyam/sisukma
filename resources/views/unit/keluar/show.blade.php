@@ -68,6 +68,21 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
+              <label for="tujuan_surat">Tujuan Surat</label>
+              <div class="input-group mb-3">
+              <input id="tujuan_surat" type="text" class="form-control @error('tujuan_surat') is-invalid @enderror" name="tujuan_surat" autocomplete="tujuan_surat" value="{{ $item->tujuan_surat }}" required>
+              </div>
+              <small id="tujuan_surat" class="form-text text-muted">Contoh : Pemerintahan Kota Balikpapan</small>
+              @error('tujuan_surat')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group col-md-8">
               <label for="pejabat_penandatangan">Pejabat Penandatangan</label>
               <div class="input-group mb-3">
               <select id="pejabat_penandatangan" type="text" class="form-control @error('pejabat_penandatangan') is-invalid @enderror" name="pejabat_penandatangan" value="{{ old('pejabat_penandatangan') }}" autocomplete="pejabat_penandatangan" required>
