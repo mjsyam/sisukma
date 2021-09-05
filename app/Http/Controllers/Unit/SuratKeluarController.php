@@ -40,7 +40,7 @@ class SuratKeluarController extends Controller
 
         $surat = SuratKeluar::create($data);
 
-        return back()->withSuccess('Surat masuk berhasil disimpan');
+        return back()->withSuccess('Surat keluar berhasil disimpan');
     }
 
     public function show($id)

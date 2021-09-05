@@ -103,6 +103,7 @@ Route::group(['prefix' => UNIT, 'as' => UNIT . '.', 'middleware'=>['auth', 'Role
     Route::get('surat/disetujui/', 'Unit\SuratController@disetujui')->name('surat.disetujui');
     Route::resource('masuk', 'Unit\SuratMasukController');
     Route::resource('keluar', 'Unit\SuratKeluarController');
+    Route::resource('internal', 'Unit\SuratUnitController');
 });
 
 Route::group(['prefix' => ARSIPARIS, 'as' => ARSIPARIS . '.', 'middleware'=>['auth', 'Role:5']], function () {

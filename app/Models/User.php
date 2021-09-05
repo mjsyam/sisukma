@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\E_surat\Surat;
 use App\Models\E_office\SuratMasuk;
 use App\Models\E_office\SuratKeluar;
+use App\Models\E_office\SuratUnit;
 use App\Models\Mahasiswa;
 
 class User extends Authenticatable
@@ -115,6 +116,9 @@ class User extends Authenticatable
     }
     public function surat_keluar(){
         return $this->hasMany(SuratKeluar::class, 'id_users');
+    }
+    public function surat_unit(){
+        return $this->hasMany(SuratUnit::class, 'id_users');
     }
     public function pejabat(){
         return $this->hasMany(SuratKeluar::class, 'pejabat_penandatangan');

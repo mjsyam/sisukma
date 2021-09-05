@@ -27,6 +27,14 @@
         <span class="title">Surat Keluar</span>
     </a>
 </li>
+<li class="nav-item">
+    <a class="sidebar-link {{ Str::startsWith($route, UNIT. '.internal') ? 'actived' : '' }}" href="{{ route(UNIT . '.internal.index') }}">
+        <span class="icon-holder">
+            <i class="c-blue-500 ti-folder"></i>
+        </span>
+        <span class="title">Surat Internal</span>
+    </a>
+</li>
 @foreach($pengaturan as $p)
 @if(Auth::user()->id === $p->id_users)
 <li class="nav-item">
