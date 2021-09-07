@@ -15,26 +15,6 @@ class DashboardController extends Controller
         $year = Carbon::now()->year;
         $jurusan = Auth::user()->mahasiswa->jurusan;
 
-        $bulan = ['01','02','03','04','05','06','07','08','09','10','11','12'];
-        foreach ($bulan as $b) {
-            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where('status_surat', '>' , 3)->whereHas('user.mahasiswa', function($q) use ($jurusan){
-            $q->where('jurusan', $jurusan);
-        })->count();
-        }
-
-        $tahun = array();
-            $tahun[0] = date('Y')-2;
-            $tahun[1] = date('Y')-1;
-            $tahun[2] = date('Y');
-            $tahun[3] = date('Y')+1;
-            $tahun[4] = date('Y')+2;
-
-        foreach($tahun as $t) {
-            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where('status_surat', '>' , 3)->whereHas('user.mahasiswa', function($q) use ($jurusan){
-            $q->where('jurusan', $jurusan);
-        })->count();
-        }
-
         $label = array();
             $label[0] = 'Surat Rekomendasi Beasiswa';
             $label[1] = 'Surat Permohonan Data';
@@ -46,6 +26,42 @@ class DashboardController extends Controller
             $label[7] = 'Surat Pengantar Proposal KP';
             $label[8] = 'Surat Melanjutkan Penelitian';
             $label[9] = 'Surat Pengantar KP';
+
+        $bulan = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+        foreach ($bulan as $b) {
+            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '-'. '%')->where(function ($query){
+                $query->where('status_surat',4);
+                $query->orWhere('status_surat',5);
+                $query->orWhere('status_surat',6);
+                $query->orWhere('status_surat',7);
+                $query->orWhere('status_surat',19);
+                $query->orWhere('status_surat',20);
+                $query->orWhere('status_surat',21);
+            })->whereHas('user.mahasiswa', function($q) use ($jurusan){
+                $q->where('jurusan', $jurusan);
+            })->count();
+        }
+
+        $tahun = array();
+            $tahun[0] = date('Y')-2;
+            $tahun[1] = date('Y')-1;
+            $tahun[2] = date('Y');
+            $tahun[3] = date('Y')+1;
+            $tahun[4] = date('Y')+2;
+
+        foreach($tahun as $t) {
+            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where(function ($query){
+                $query->where('status_surat',4);
+                $query->orWhere('status_surat',5);
+                $query->orWhere('status_surat',6);
+                $query->orWhere('status_surat',7);
+                $query->orWhere('status_surat',19);
+                $query->orWhere('status_surat',20);
+                $query->orWhere('status_surat',21);
+            })->whereHas('user.mahasiswa', function($q) use ($jurusan){
+                $q->where('jurusan', $jurusan);
+            })->count();
+        }
         
         foreach($label as $l){
             $pie[]=Surat::where('nama_surat', $l)->whereHas('user.mahasiswa', function($q) use ($jurusan){

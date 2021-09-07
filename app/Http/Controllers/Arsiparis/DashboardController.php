@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Arsiparis;
 
 use App\Http\Controllers\Controller;
-use App\Models\E_surat\Surat;
+use App\Models\E_office\SuratMasuk;
+use App\Models\E_office\SuratKeluar;
+use App\Models\E_office\BukuAgenda;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -14,14 +16,18 @@ class DashboardController extends Controller
     {
         $year = Carbon::now()->year;
 
-        $pengajuan = Surat::where('status_surat', 0)->where('created_at',  'like', '%' . $year . '-%')->count();
-        $ditolak = Surat::where('status_surat', 1)->where('created_at',  'like', '%' . $year . '-%')->count();
-        $terverifikasi = Surat::where('status_surat', 2)->where('created_at',  'like', '%' . $year . '-%')->count();
-        $dicetak = Surat::where('status_surat', 3)->where('created_at',  'like', '%' . $year . '-%')->count();
+        $keluar = SuratKeluar::count();
+        $masuk = SuratMasuk::count();
+        $b_masuk = BukuAgenda::where('jenis_surat','Surat Masuk')->count();
+        $b_keluar = BukuAgenda::where('jenis_surat','Surat Keluar')->count();
 
         $bulan = ['01','02','03','04','05','06','07','08','09','10','11','12'];
         foreach ($bulan as $b) {
-            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where('status_surat', '<' , 4)->count();
+            $area_keluar[]=SuratKeluar::where('created_at',  'like', '%' . $year . '-' . $b . '%')->count();
+        }
+
+        foreach ($bulan as $b) {
+            $area_masuk[]=SuratMasuk::where('created_at',  'like', '%' . $year . '-' . $b . '%')->count();
         }
 
         $tahun = array();
@@ -32,24 +38,13 @@ class DashboardController extends Controller
             $tahun[4] = date('Y')+2;
 
         foreach($tahun as $t) {
-            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where('status_surat', '<' , 4)->count();
+            $area2_keluar[]=SuratKeluar::where('created_at',  'like', '%' . $t . '-' . '%')->count();
         }
 
-        $label = array();
-            $label[0] = 'SK Aktif Organisasi';
-            $label[1] = 'SK Aktif Studi';
-            $label[2] = 'SK Lulus';
-            $label[3] = 'SK Pengganti KTM';
-            $label[4] = 'SK Pernah Studi';
-        
-        $hari = Carbon::now()->format('Y-m-d');
-        foreach($label as $l){
-            $pie[]=Surat::where('created_at',  'like', '%' . $hari . '%')->where('nama_surat', $l)->count();
+        foreach($tahun as $t) {
+            $area2_masuk[]=SuratMasuk::where('created_at',  'like', '%' . $t . '-' . '%')->count();
         }
 
-        $color = ['#30a5ff', '#ffb53e', '#1ebfae', '#f9243f', '#7715bd'];
-        $highlight = ['#62b9fb', '#fac878', '#3cdfce', '#f6495f', '#b64fff'];
-
-        return view('arsiparis.dashboard.index', compact('year', 'pengajuan', 'ditolak', 'terverifikasi', 'dicetak', 'bulan', 'area', 'tahun', 'area2', 'label', 'pie', 'color', 'highlight'));
+        return view('arsiparis.dashboard.index', compact('year', 'keluar', 'masuk', 'b_masuk', 'b_keluar', 'area_keluar', 'area_masuk', 'area2_masuk', 'area2_keluar', 'tahun'));
     }
 }

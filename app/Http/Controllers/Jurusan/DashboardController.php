@@ -30,7 +30,15 @@ class DashboardController extends Controller
 
         $bulan = ['01','02','03','04','05','06','07','08','09','10','11','12'];
         foreach ($bulan as $b) {
-            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where('status_surat', '>' , 3)->where('status_surat', '<' , 8)->orWhere('status_surat', '>' , 11)->whereHas('user.mahasiswa', function($q) use ($jurusan){
+            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where(function ($query){
+                $query->where('status_surat',4);
+                $query->orWhere('status_surat',5);
+                $query->orWhere('status_surat',6);
+                $query->orWhere('status_surat',7);
+                $query->orWhere('status_surat',19);
+                $query->orWhere('status_surat',20);
+                $query->orWhere('status_surat',21);
+            })->whereHas('user.mahasiswa', function($q) use ($jurusan){
             $q->where('jurusan', $jurusan);
         })->count();
         }
@@ -43,7 +51,15 @@ class DashboardController extends Controller
             $tahun[4] = date('Y')+2;
 
         foreach($tahun as $t) {
-            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where('status_surat', '>' , 3)->where('status_surat', '<' , 8)->orWhere('status_surat', '>' , 11)->whereHas('user.mahasiswa', function($q) use ($jurusan){
+            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where(function ($query){
+                $query->where('status_surat',4);
+                $query->orWhere('status_surat',5);
+                $query->orWhere('status_surat',6);
+                $query->orWhere('status_surat',7);
+                $query->orWhere('status_surat',19);
+                $query->orWhere('status_surat',20);
+                $query->orWhere('status_surat',21);
+            })->whereHas('user.mahasiswa', function($q) use ($jurusan){
             $q->where('jurusan', $jurusan);
         })->count();
         }

@@ -20,7 +20,12 @@ class DashboardController extends Controller
 
         $bulan = ['01','02','03','04','05','06','07','08','09','10','11','12'];
         foreach ($bulan as $b) {
-            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where('status_surat', '<' , 4)->orWhere('status_surat', 9)->orWhere('status_surat', 10)->orWhere('status_surat', 11)->count();
+            $area[]=Surat::where('created_at',  'like', '%' . $year . '-' . $b . '%')->where(function ($query){
+                $query->where('status_surat', '<',4);
+                $query->orWhere('status_surat',9);
+                $query->orWhere('status_surat',10);
+                $query->orWhere('status_surat',11);
+            })->count();
         }
 
         $tahun = array();
@@ -31,7 +36,12 @@ class DashboardController extends Controller
             $tahun[4] = date('Y')+2;
 
         foreach($tahun as $t) {
-            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where('status_surat', '<' , 4)->orWhere('status_surat', 9)->orWhere('status_surat', 10)->orWhere('status_surat', 11)->count();
+            $area2[]=Surat::where('created_at',  'like', '%' . $t . '-' . '%')->where(function ($query){
+                $query->where('status_surat', '<',4);
+                $query->orWhere('status_surat',9);
+                $query->orWhere('status_surat',10);
+                $query->orWhere('status_surat',11);
+            })->count();
         }
 
         $label = array();
