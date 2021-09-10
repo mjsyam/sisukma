@@ -14,6 +14,9 @@ use App\Models\Sekretariat;
 use App\Models\Unit_kerja;
 use App\Models\Wakil_rektor;
 use App\Models\Admin;
+use App\Imports\UserImport;
+use App\Imports\MahasiswaImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -153,9 +156,53 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function import(Request $request)
+    {
+        Excel::import(new UserImport, $request->file('file_data'));
+        Excel::import(new MahasiswaImport, $request->file('file_data'));
+        return back()->withSuccess('Data mahasiswa sukses disimpan');
+    }
+
     public function destroy($id)
     {
-        User::destroy($id);
+        $data = User::findOrFail($id);
+        if ($data['role'] == 1) {
+            Mahasiswa::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 11) {
+            Tendik_jurusan::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 10) {
+            Tendik_akademik::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 4) {
+            Unit_kerja::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 5) {
+            Arsiparis::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 6) {
+            Sekretariat::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 7) {
+            Wakil_rektor::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 8) {
+            Rektor::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
+        elseif ($data['role'] == 100) {
+            Admin::where('id_users', $data->id)->delete();
+            User::destroy($id);
+        }
 
         return back()->withSuccess(trans('app.success_destroy'));
     }

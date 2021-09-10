@@ -12,6 +12,7 @@ Auth::routes(['register' => false]);
 Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:100']], function () {
     Route::get('/', 'DashboardController@index')->name('dash');
     Route::resource('users', 'UserController');
+    Route::post('users/import', 'UserController@import')->name('users.import');
     Route::resource('pengaturan', 'PengaturanController');
 });
 
