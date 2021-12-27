@@ -57,7 +57,7 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
-              <label for="tanda_tangan">Úpload Tanda Tangan</label>
+              <label for="tanda_tangan">Upload Tanda Tangan</label>
               <div class="input-group mb-3">
               <input id="tanda_tangan" type="file" class="form-control @error('tanda_tangan') is-invalid @enderror" name="tanda_tangan" autocomplete="tanda_tangan" required>
               <div class="input-group-append">

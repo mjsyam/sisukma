@@ -71,6 +71,20 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
+              <label for="tanggal_surat_masuk">Tanggal Surat Masuk di Institusi</label>
+              <div class="input-group mb-3">
+              <input id="tanggal_surat_masuk" type="text" class="form-control @error('tanggal_surat_masuk') is-invalid @enderror datetimepicker1" name="tanggal_surat_masuk" autocomplete="tanggal_surat_masuk" value="{{ old('tanggal_surat_masuk') }}" required>
+              </div>
+              @error('tanggal_surat_masuk')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group col-md-8">
               <label for="tujuan_surat">Tujuan Surat</label>
               <div class="input-group mb-3">
               <select id="tujuan_surat" type="text" class="form-control @error('tujuan_surat') is-invalid @enderror" name="tujuan_surat" value="{{ old('tujuan_surat') }}" autocomplete="tujuan_surat">

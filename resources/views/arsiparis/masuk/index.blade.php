@@ -22,6 +22,7 @@
                         <th>No Surat</th>
                         <th>Perihal Surat</th>
                         <th>Tanggal Surat</th>
+                        <th>Tanggal Surat Masuk</th>
                         <th>Tujuan</th>
                         <th>Pengirim</th>
                         <th>Status Surat</th>
@@ -35,6 +36,7 @@
                         <th>No Surat</th>
                         <th>Perihal Surat</th>
                         <th>Tanggal Surat</th>
+                        <th>Tanggal Surat Masuk</th>
                         <th>Tujuan</th>
                         <th>Pengirim</th>
                         <th>Status Surat</th>
@@ -51,6 +53,7 @@
                             <td><a href="{{ route(ARSIPARIS . '.masuk.show', $item->id) }}">{{ $item->no_surat }}</a></td>
                             <td>{{ $item->perihal_surat }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
+                            <td>{{ $item->tanggal_surat_masuk }}</td>
                             @if($item->status_surat == 0)
                             <td>{{ $item->tujuan_surat }}</td>
                             @else
