@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+    <style>
+        div.dataTables_wrapper {
+        width: 1500px;
+        margin: 0 auto;
+    }
+    </style>
     <div class="bgc-white bd bdrs-3 p-20 mB-20">
         <div class="table-responsive">
             <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -13,8 +19,12 @@
                         <th>NO</th>
                         <th>No Surat</th>
                         <th>Perihal Surat</th>
-                        <th>Tanggal Surat</th>
+                        <th>Tanggal Surat Terlampir</th>
+                        <th>Tanggal Surat Masuk</th>
                         <th>Tujuan</th>
+                        <th>Tujuan Pimpinan</th>
+                        <th>Disposisi Pihak kedua</th>
+                        <th>Disposisi Pihak ketiga</th>
                         <th>Pengirim</th>
                         <th>Status Surat</th>
                         <th>Actions</th>
@@ -26,8 +36,12 @@
                         <th>NO</th>
                         <th>No Surat</th>
                         <th>Perihal Surat</th>
-                        <th>Tanggal Surat</th>
+                        <th>Tanggal Surat Terlampir</th>
+                        <th>Tanggal Surat Masuk</th>
                         <th>Tujuan</th>
+                        <th>Tujuan Pimpinan</th>
+                        <th>Disposisi Pihak kedua</th>
+                        <th>Disposisi Pihak ketiga</th>
                         <th>Pengirim</th>
                         <th>Status Surat</th>
                         <th>Actions</th>
@@ -43,6 +57,7 @@
                             <td><a href="{{ route(SEKRETARIAT . '.masuk.show', $item->id) }}">{{ $item->no_surat }}</a></td>
                             <td>{{ $item->perihal_surat }}</td>
                             <td>{{ $item->tanggal_surat }}</td>
+                            <td>{{ $item->tanggal_surat_masuk }}</td>
                             @if($item->tujuan_surat == null)
                             <td>Belum Pasti</td>
                             @else
@@ -54,6 +69,19 @@
                                     <td>Rektor</td>
                                 @endif
                             @endif
+                            @if($item->tujuan_pimpinan == null)
+                                <td></td>
+                            @else
+                                    @if($item->tujuan_pimpinan == 13)
+                                        <td>Rektor</td>
+                                    @elseif($item->tujuan_pimpinan == 12)
+                                        <td>Wakil Rektor Bidang Non Akademik</td>
+                                    @elseif($item->tujuan_pimpinan == 52)
+                                        <td>Wakil Rektor Bidang Non Akademik</td>
+                                    @endif
+                            @endif
+                            <td>{{ $item->disposisi2 }}</td>
+                            <td>{{ $item->disposisi3 }}</td>    
                             <td>{{ $item->pengirim }}</td>
                             <td>
                                 @if($item->status_surat == 0)

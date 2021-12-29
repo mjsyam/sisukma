@@ -46,6 +46,68 @@
               @enderror
             </div>
           </div>
+          <div class="form-group">
+            <div class="form-group col-md-12">
+              <label for="disposisi">Peruntukan Disposisi</label>
+              <div class="input-group mb-3">
+              @if($item->disposisi == 1)
+              <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Ikuti Prosedur Menteri" }}" readonly>
+              @else
+                @if($item->disposisi == 2)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Proses Sesuai Prosedur" }}" readonly>
+                @elseif($item->disposisi == 3)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Selesaikan" }}" readonly>
+                @elseif($item->disposisi == 4)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Tanggapan/Saran Tertulis" }}" readonly>
+                @elseif($item->disposisi == 5)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Pelajari" }}" readonly>
+                @elseif($item->disposisi == 6)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk Pertimbangan" }}" readonly>
+                @elseif($item->disposisi == 7)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Perbaiki" }}" readonly>
+                @elseif($item->disposisi == 8)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Siapkan dan Buatkan Konsep/Bahan" }}" readonly>
+                @elseif($item->disposisi == 9)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Buatkan Undangan" }}" readonly>
+                @elseif($item->disposisi == 10)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk digunakan/ ditindaklanjuti" }}" readonly>
+                @elseif($item->disposisi == 11)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Tangani Bersama" }}" readonly>
+                @elseif($item->disposisi == 12)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Hadiri/ Wakili" }}" readonly>
+                @elseif($item->disposisi == 13)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk Diketahui/ Diperhatikan" }}" readonly>
+                @elseif($item->disposisi == 14)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Chechk Status/ Perkembangan" }}" readonly>
+                @elseif($item->disposisi == 15)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Laporkan" }}" readonly>
+                @elseif($item->disposisi == 16)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Dibantu" }}" readonly>
+                @elseif($item->disposisi == 17)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Dapat Disetujui" }}" readonly>
+                @elseif($item->disposisi == 18)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Temui Saya" }}" readonly>
+                @elseif($item->disposisi == 19)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Adakan Rapat" }}" readonly>
+                @elseif($item->disposisi == 20)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Koordinasikan" }}" readonly>
+                @elseif($item->disposisi == 21)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Jadwalkan/ Ingatkan" }}" readonly>
+                @elseif($item->disposisi == 22)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Kirimkan Segera" }}" readonly>
+                @elseif($item->disposisi == 23)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Fotokopi / Arsipkan" }}" readonly>
+                @endif
+              @endif
+            </div>
+              <small id="disposisi" class="form-text text-muted">Tujuan Disposisi Surat</small>
+              @error('disposisi')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+          </div>
 
           <div class="form-group">
             <div class="form-group col-md-8">

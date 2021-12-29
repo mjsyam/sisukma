@@ -130,84 +130,10 @@
                             </div>
                         </div> <!-- single features -->
                     </div>
-                    <div class="col-lg-4 col-md-7 col-sm-9">
-                        <div class="single-features mt-40">
-                            <div class="features-title-icon d-flex justify-content-between">
-                                <h4 class="features-title" style="color:#1b7ced">Eksternal ITK</h4>
-                                <div class="features-icon">
-                                    <i class="lni lni-bolt"></i>
-                                </div>
-                            </div>
-                            <div class="features-content">
-                                <p class="text">Eksternal ITK dapat mengirimkan surat langsung kepada Internal ITK melalui formulir yang ada di bawah ini</p>
-                            </div>
-                        </div> <!-- single features -->
-                    </div>
                 </div> <!-- row -->
             </div>
         </section>
 
-        <section class="section home-feature">
-            <div class="container2">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="col-lg-12 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-                            <div class="features-small-item">
-                                <div class="panel panel-default" id="kirim-surat">
-                                    <div class="panel-heading" style="font-size: 19px;"><strong>Bukan bagian dari ITK, tapi ingin mengirimkan surat? Silahkan mengisi form dibawah ini</strong> </div>
-                                    @if (Session::has('success'))
-                                        <div class="alert alert-success" tabindex="-1" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                            {{Session::get('success')}}
-                                        </div>
-                                    @endif
-                                    {!! Form::open([
-                                          'route' => [ 'masuk.store' ],
-                                          'files' => true
-                                        ])
-                                      !!}
-                                        
-                                        <div class="form-group">
-                                              
-                                            <input type="hidden" name="tanggal_surat" value="{{date('d/m/Y')}}">
-                                            <input type="hidden" name="status_surat" value="{{ 0 }}">
-                                            <label class="form_style">
-                                                Nama Instansi
-                                                <input class="input" name="pengirim" type="text" placeholder="Nama Instansi" required>
-                                            </label>
-                                            <label class="form_style">
-                                                Nomor Surat
-                                                <input class="input" name="no_surat" type="text" placeholder="Nomor Surat" required>
-                                            </label>
-                                            <label class="form_style">
-                                                Perihal
-                                                <input class="input" name="perihal_surat" type="text" placeholder="Perihal Surat" required>
-                                            </label>
-                                            <label class="form_style">
-                                                Tujuan Surat
-                                                <input class="input" name="tujuan_surat" type="text" placeholder="Tujuan Surat" required>
-                                            </label>    
-                                        </div>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="file_surat" class="custom-file-input" id="inputGroupFile04"  required>
-                                                <label class="custom-file-label" for="inputGroupFile04">Lampiran, maksimal 2MB dan hanya file PDF</label>
-                                            </div>
-                                        </div>
-    
-                                        <div class="footer-right">
-                                            <button class="btn btn-primary" type="submit" style="margin-top: 10px;">KIRIM</button>
-                                        </div>
-
-                                    {!! Form::close() !!}
-                                </div>
-                            </div>
-                            <!-- ***** Features Small Item End ***** -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <footer>
             <section class="row row-padding text-center kontak-sukma" id="kontak">
                 <div class="col-md-6 offset-md-3 head-section"> 

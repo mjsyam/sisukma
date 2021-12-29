@@ -57,7 +57,7 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
-              <label for="tanggal_surat">Tanggal Surat</label>
+              <label for="tanggal_surat">Tanggal Surat Terlampir</label>
               <div class="input-group mb-3">
               <input id="tanggal_surat" type="text" class="form-control @error('tanggal_surat') is-invalid @enderror datetimepicker1" name="tanggal_surat" autocomplete="tanggal_surat" value="{{ old('tanggal_surat') }}" required>
               </div>
@@ -100,13 +100,40 @@
                 @endforeach
               </select>
               </div>
-              <small id="perihal_surat" class="form-text text-muted">Dapat memilih "belum pasti", jika tujuan surat belum pasti</small>
+              <small id="tujuan_surat" class="form-text text-muted">Dapat memilih "belum pasti", jika tujuan surat belum pasti</small>
               @error('tujuan_surat')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
               @enderror
             </div>
+          </div> 
+          <div class="formgroup row pl-3">
+            <div class="form-group col-md-6">    
+              <label for="disposisi2">Disposisi Surat Untuk Pihak ke2</label>
+              <div class="input-group mb-3">
+              <input id="disposisi2" type="text" class="form-control @error('disposisi2') is-invalid @enderror" name="disposisi2" autocomplete="disposisi2" value="{{ old('disposisi2') }}">
+              </div>
+              @error('disposisi2')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <small id="disposisi2" class="form-text text-muted">Dapat dipilih "Tidak Ada" jika tidak ada</small>
+            </div>
+            <div class="form-group col-md-6">    
+              <label for="disposisi3">Disposisi Surat Untuk Pihak ke 3</label>
+              <div class="input-group mb-3">
+              <input id="disposisi3" type="text" class="form-control @error('disposisi3') is-invalid @enderror" name="disposisi3" autocomplete="disposisi3" value="{{ old('disposisi3') }}">
+              </div>
+              @error('disposisi3')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <small id="disposisi3" class="form-text text-muted">Dapat dikosongkan jika tidak ada</small>
+            </div>
+  
           </div>
 
           <div class="form-group">

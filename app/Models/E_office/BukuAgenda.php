@@ -13,7 +13,7 @@ class BukuAgenda extends Model
 
     protected $table = 'buku_agenda';
     protected $fillable = ['id_surat','no_agenda','jenis_surat', 'ringkasan_isi'];
-
+ 
     /*
     |------------------------------------------------------------------------------------
     | Validations

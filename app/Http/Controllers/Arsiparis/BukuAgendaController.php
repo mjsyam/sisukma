@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Arsiparis;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use App\Models\E_office\BukuAgenda;
 
 class BukuAgendaController extends Controller

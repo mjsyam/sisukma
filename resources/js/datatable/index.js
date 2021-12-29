@@ -7,6 +7,9 @@ export default (function () {
 			// 'url' : 'https://cdn.datatables.net/plug-ins/1.10.16/i18n/French.json'
 			// More languages : http://www.datatables.net/plug-ins/i18n/
 		},
-		aaSorting: []
+		aaSorting: [],
+		scrollX: true,
 	});
+	
 }());
+

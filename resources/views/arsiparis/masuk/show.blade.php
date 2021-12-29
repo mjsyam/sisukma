@@ -1,7 +1,7 @@
 @extends('arsiparis.default')
 
 @section('page-header')
-    Buat<small> Surat Masuk </small>
+    Detail<small> Surat Masuk </small>
 @endsection
 
 @section('content')
@@ -59,10 +59,75 @@
           </div>
 
           <div class="form-group">
-            <div class="form-group col-md-8">
-              <label for="tanggal_surat">Tanggal Surat</label>
+            <div class="form-group col-md-12">
+              <label for="disposisi">Tindakan Disposisi</label>
               <div class="input-group mb-3">
-              <input id="tanggal_surat" type="text" class="form-control @error('tanggal_surat') is-invalid @enderror datetimepicker1" name="tanggal_surat" autocomplete="tanggal_surat" value="{{ $item->tanggal_surat }}" required>
+              @if($item->disposisi == null)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Belum Di proses" }}" disabled>
+              @else
+                @if($item->disposisi == 1)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Ikuti Prosedur Menteri" }}" disabled>
+                @elseif($item->disposisi == 2)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Proses Sesuai Prosedur" }}" disabled>
+                @elseif($item->disposisi == 3)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Selesaikan" }}" disabled>
+                @elseif($item->disposisi == 4)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Tanggapan/Saran Tertulis" }}" disabled>
+                @elseif($item->disposisi == 5)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Pelajari" }}" disabled>
+                @elseif($item->disposisi == 6)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk Pertimbangan" }}" disabled>
+                @elseif($item->disposisi == 7)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Perbaiki" }}" disabled>
+                @elseif($item->disposisi == 8)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Siapkan dan Buatkan Konsep/Bahan" }}" disabled>
+                @elseif($item->disposisi == 9)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Buatkan Undangan" }}" disabled>
+                @elseif($item->disposisi == 10)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk digunakan/ ditindaklanjuti" }}" disabled>
+                @elseif($item->disposisi == 11)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Tangani Bersama" }}" disabled>
+                @elseif($item->disposisi == 12)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Hadiri/ Wakili" }}" disabled>
+                @elseif($item->disposisi == 13)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Untuk Diketahui/ Diperhatikan" }}" disabled>
+                @elseif($item->disposisi == 14)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Chechk Status/ Perkembangan" }}" disabled>
+                @elseif($item->disposisi == 15)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Laporkan" }}" disabled>
+                @elseif($item->disposisi == 16)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Dibantu" }}" disabled>
+                @elseif($item->disposisi == 17)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Dapat Disetujui" }}" disabled>
+                @elseif($item->disposisi == 18)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Temui Saya" }}" disabled>
+                @elseif($item->disposisi == 19)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Adakan Rapat" }}" disabled>
+                @elseif($item->disposisi == 20)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Koordinasikan" }}" disabled>
+                @elseif($item->disposisi == 21)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Jadwalkan/ Ingatkan" }}" disabled>
+                @elseif($item->disposisi == 22)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Kirimkan Segera" }}" disabled>
+                @elseif($item->disposisi == 23)
+                <input id="disposisi" type="text" class="form-control @error('disposisi') is-invalid @enderror" name="disposisi" autocomplete="disposisi" value="{{ "Fotokopi / Arsipkan" }}" disabled>
+                @endif
+              @endif
+              </div>
+              <small id="disposisi" class="form-text text-muted">Tujuan di Disposisi</small>
+              @error('disposisi')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="form-group col-md-8">
+              <label for="tanggal_surat">Tanggal Surat Terlampir</label>
+              <div class="input-group mb-3">
+              <input id="tanggal_surat" type="text" class="form-control @error('tanggal_surat') is-invalid @enderror datetimepicker1" name="tanggal_surat" autocomplete="tanggal_surat" value="{{ $item->tanggal_surat }}" disabled>
               </div>
               @error('tanggal_surat')
                   <span class="invalid-feedback" role="alert">
@@ -76,7 +141,7 @@
             <div class="form-group col-md-8">
               <label for="tanggal_surat_masuk">Tanggal Surat Masuk di Institusi</label>
               <div class="input-group mb-3">
-              <input id="tanggal_surat_masuk" type="text" class="form-control @error('tanggal_surat_masuk') is-invalid @enderror datetimepicker1" name="tanggal_surat_masuk" autocomplete="tanggal_surat_masuk" value="{{ $item->tanggal_surat_masuk }}" required>
+              <input id="tanggal_surat_masuk" type="text" class="form-control @error('tanggal_surat_masuk') is-invalid @enderror datetimepicker1" name="tanggal_surat_masuk" autocomplete="tanggal_surat_masuk" value="{{ $item->tanggal_surat_masuk }}" disabled>
               </div>
               @error('tanggal_surat')
                   <span class="invalid-feedback" role="alert">
@@ -86,36 +151,21 @@
             </div>
           </div>
 
-
-          <div class="form-group row pl-3">
-            <div class="form-group col-md-4">
-             <label for="tujuan_surat">Tujuan Surat</label>
+          <div class="form-group">
+            <div class="form-group col-md-8">
+              <label for="prodi">Disposisi Tujuan Surat( yang diisi oleh pengirim surat dan telah disetujui pimpinan )</label>
               <div class="input-group mb-3">
-              <select id="tujuan_surat" type="text" class="form-control @error('tujuan_surat') is-invalid @enderror" name="tujuan_surat" value="{{ old('tujuan_surat') }}" autocomplete="tujuan_surat">
-                <option value="" >Belum pasti</option>
-                @foreach($user as $user)
-                  @if($user->role == 4)
-                    <option value="{{$user->id}}">{{$user->unit_kerja->jabatan}} - {{$user->unit_kerja->unit}}</option>
-                  @elseif($user->role == 7)
-                    <option value="{{$user->id}}">{{$user->wakil_rektor->jabatan}}</option>
-                  @elseif($user->role == 8)
-                    <option value="{{$user->id}}">Rektor</option>
-                  @endif
-                @endforeach
-              </select>
-              </div>
-              @error('tujuan_surat')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-              <small id="perihal_surat" class="form-text text-muted">Dapat memilih "belum pasti", jika tujuan surat belum pasti</small>
-            </div>
-
-            <div class="form-group col-md-4">
-              <label for="prodi">Tujuan Surat( yang diisi oleh pengirim surat )</label>
-              <div class="input-group mb-3">
-              <input type="text" class="form-control" value="{{ $item->tujuan_surat }}" disabled>
+              @if($item->tujuan_surat == null)
+                <input type="text" class="form-control" value="Belum Pasti" disabled>
+              @else
+                @if($item->user->role == 4)
+                  <input type="text" class="form-control" value="{{ $item->user->unit_kerja->jabatan }} - {{ $item->user->unit_kerja->unit }}" disabled>
+                @elseif($item->user->role == 7)
+                  <input type="text" class="form-control" value="{{ $item->user->wakil_rektor->jabatan}}" disabled>
+                @elseif($item->user->role == 8)
+                  <input type="text" class="form-control" value="Rektor" disabled>
+                @endif
+              @endif
               </div>
               @error('tujuan_surat')
                   <span class="invalid-feedback" role="alert">
@@ -124,6 +174,36 @@
               @enderror
             </div>
           </div>
+          
+          <div class="formgroup row pl-3">
+            <div class="form-group col-md-6">    
+              <label for="disposisi2">Disposisi Surat Untuk Pihak ke2</label>
+              <div class="input-group mb-3">
+              <input id="disposisi2" type="text" class="form-control @error('disposisi2') is-invalid @enderror" name="disposisi2" autocomplete="disposisi2" value="{{ $item->disposisi2 }}">
+              </div>
+              @error('disposisi2')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <small id="disposisi2" class="form-text text-muted">Dapat dikosongkan jika tidak ada</small>
+            </div>
+            <div class="form-group col-md-6">    
+              <label for="disposisi3">Disposisi Surat Untuk Pihak ke 3</label>
+              <div class="input-group mb-3">
+              <input id="disposisi3" type="text" class="form-control @error('disposisi3') is-invalid @enderror" name="disposisi3" autocomplete="disposisi3" value="{{ $item->disposisi3 }}">
+              </div>
+              @error('disposisi3')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <small id="disposisi3" class="form-text text-muted">Dapat dikosongkan jika tidak ada</small>
+            </div>
+  
+          </div>
+
+
 
           <div class="form-group">
             <div class="form-group col-md-8">
@@ -142,7 +222,7 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
-              <label for="file_surat">Úpload Surat</label>
+              <label for="file_surat">Upload Surat</label>
               <div class="input-group mb-3">
               <input id="file_surat" type="file" class="form-control @error('file_surat') is-invalid @enderror" name="file_surat" autocomplete="file_surat" disabled>
               @isset($item->file_surat)
@@ -155,7 +235,7 @@
               <small id="file_surat" class="form-text text-muted">hanya file pdf, max 2 Mb </small>
               @error('file_surat')
                   <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
+                      <strong>{{ $message }}</strong> 
                   </span>
               @enderror
             </div>
@@ -178,7 +258,7 @@
 
           <div class="form-group row mb-0 pr-3">
           <div class="col-md-1 align-self-end ml-auto">
-              <button type="button" class="btn btn-lg btn-info pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Simpan</button>
+              
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
