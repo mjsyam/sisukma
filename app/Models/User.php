@@ -127,7 +127,7 @@ class User extends Authenticatable
         return $this->hasMany(SuratMasuk::class, 'tujuan_pimpinan');
     }
     public function pengaturan(){
-        return $this->hasOne(Pengaturan::class, 'id_users');
+        return $this->hasOne(Pengaturan::class, 'id_users'); 
     }
 
 }

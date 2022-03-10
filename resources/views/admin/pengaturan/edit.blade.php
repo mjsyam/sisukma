@@ -25,8 +25,7 @@
 
           <div class="form-group">
             <div class="form-group col-md-8">
-              {!! Form::mySelect('jabatan', 'Jabatan', config('variables.jabatan'), $item->jabatan, ['class' => 'form-control select2', 'disabled']) !!}
-              <input type="hidden" name="jabatan" value="{{ $item->jabatan}}">
+              <input type="text" class="form-control @error('no_surat') is-invalid @enderror" name="jabatan" value="{{ $item->jabatan}}" disabled>
               @error('jabatan')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>

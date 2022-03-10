@@ -22,6 +22,7 @@ class CreateSuratMasuksTable extends Migration
             $table->string('no_surat');
             $table->string('perihal_surat');
             $table->string('tanggal_surat');
+            $table->string('tanggal_surat_masuk');
             $table->string('tujuan_surat')->nullable();
             $table->string('pengirim');
             $table->string('file_surat');
@@ -29,6 +30,8 @@ class CreateSuratMasuksTable extends Migration
             $table->tinyInteger('status_surat');
             $table->tinyInteger('tujuan_pimpinan')->nullable();
             $table->string('disposisi')->nullable();
+            $table->string('disposisi2')->nullable();
+            $table->string('disposisi3')->nullable();
             $table->timestamps();
         });
     }
