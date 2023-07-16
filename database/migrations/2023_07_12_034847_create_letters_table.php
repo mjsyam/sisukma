@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('letter_receivers', function (Blueprint $table) {
+        Schema::create('letters', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid("user_id")->constrained("users");
-            $table->foreignUuid("disposition_id")->constrained("users")->default(null);
-            $table->foreignUuid("letter_id")->constrained("letters");
+            $table->foreignUuid("letter_category_id")->constrained("letter_categories");
+            $table->string("title", 50);
+            $table->string("refrences_number", 30);
+            $table->string("letter_destination", 40)->nullable();
+            $table->string("body");
+            $table->string("sender", 40)->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('letter_receivers');
+        Schema::dropIfExists('letters');
     }
 };

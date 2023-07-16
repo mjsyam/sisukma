@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('letter_histories', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->foreignId("sent_letter_id")->constrained("sent_letters");
+            $table->uuid('id')->primary();
+            $table->foreignUuid("letter_id")->constrained("letters");
             $table->string("note");
+            $table->timestamps();
         });
     }
 

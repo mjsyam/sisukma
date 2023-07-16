@@ -11,8 +11,8 @@ class LetterReceiver extends Model
 
     protected $fillable = ["user_id", "send_letter_id", "disposition_id"];
 
-    public function sentLetter() {
-        return $this->belongsTo("App\Models\SentLetter");
+    public function letter() {
+        return $this->belongsTo("App\Models\Letter");
     }
 
     public function letterStatus() {

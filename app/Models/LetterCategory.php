@@ -11,7 +11,7 @@ class LetterCategory extends Model
 
     protected $fillable = ["category"];
 
-    public function sentLetter() {
-        return $this->hasMany("App\Models\SentLetter");
+    public function letter() {
+        return $this->hasMany("App\Models\Letter");
     }
 }

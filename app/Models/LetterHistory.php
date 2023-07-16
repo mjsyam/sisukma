@@ -11,7 +11,7 @@ class LetterHistory extends Model
 
     protected $fillable = ["note"];
 
-    public function sentLetter() {
-        return $this->belongsTo("App\Models\SentLetter");
+    public function letter() {
+        return $this->belongsTo("App\Models\Letter");
     }
 }

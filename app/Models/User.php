@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'signature',
+        'avatar'
     ];
 
     /**
@@ -51,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany("App\Models\LetterReceiver");
     }
 
-    public function sentLetter() {
-        return $this->hasMany("App\Models\SentLetter");
+    public function letter() {
+        return $this->hasMany("App\Models\letter");
     }
 }
