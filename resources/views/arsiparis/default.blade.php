@@ -23,7 +23,7 @@
         <!-- #Main ============================ -->
         <div class="page-container">
             <!-- ### $Topbar ### -->
-            @include('arsiparis.partials.topbar')
+            @include('layouts.partials.topbar')
 
             <!-- ### $App Screen Content ### -->
             <main class='main-content bgc-grey-100'>

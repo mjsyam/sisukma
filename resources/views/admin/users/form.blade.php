@@ -1,7 +1,7 @@
 <div class="row mB-40">
 	<div class="col-sm-8">
 		<div class="bgc-white p-20 bd">
-			{!! Form::myInput('text', 'name', 'Username') !!}
+			{{-- {!! Form::myInput('text', 'name', 'Username') !!}
 		
 			{!! Form::myInput('email', 'email', 'Email') !!}
 	
@@ -13,7 +13,7 @@
 	
 			{!! Form::myFile('avatar', 'Avatar') !!}
 	
-			{!! Form::myTextArea('bio', 'Bio') !!}
+			{!! Form::myTextArea('bio', 'Bio') !!} --}}
 		</div>  
 	</div>
 	@if (isset($item) && $item->avatar)

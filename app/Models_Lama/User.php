@@ -6,8 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-use App\Models\Role;
+use App\Models\E_surat\Surat;
+use App\Models\E_office\SuratMasuk;
+use App\Models\E_office\SuratKeluar;
+use App\Models\E_office\SuratUnit;
+use App\Models\Mahasiswa;
 
 class User extends Authenticatable
 {
@@ -18,7 +21,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    
     protected $fillable = [
         'name', 'email', 'password', 'avatar', 'bio', 'role'
     ];
@@ -29,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+        'password', 'remember_token',
     ];
 
     /**
@@ -65,15 +67,11 @@ class User extends Authenticatable
         ]);
     }
 
-    /*
-    |------------------------------------------------------------------------------------
-    | Attributes
-    |------------------------------------------------------------------------------------
-    */
-
-    public function role(){
-        return $this->belongsToMany(Role::class, 'users_roles')->orderBy('users_roles.created_at', 'asc');
-    }
+    // /*
+    // |------------------------------------------------------------------------------------
+    // | Attributes
+    // |------------------------------------------------------------------------------------
+    // */
     // public function getAvatarAttribute($value)
     // {
     //     if (!$value) {

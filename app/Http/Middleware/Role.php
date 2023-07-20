@@ -22,7 +22,7 @@ class Role
         }
 
         // Not allowed
-        if ($request->user()->role != $role) {
+        if ($request->user()->role->first()->role != $role) {
             return abort(404);
         }
         return $next($request);
