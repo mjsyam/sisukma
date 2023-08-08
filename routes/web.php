@@ -1,8 +1,11 @@
 <?php
-
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 Auth::routes(['register' => false]);
+
+Route::group(['middleware'=>['auth']], function () {
+    Route::get("/dashboard", "DashboardController@index")->name('dashboard');
+});
 
 /*
 |------------------------------------------------------------------------------------
@@ -10,13 +13,13 @@ Auth::routes(['register' => false]);
 |------------------------------------------------------------------------------------
 */
 Route::group(['middleware'=>['auth', 'Role:admin']], function () {
-//     Route::get('/', 'DashboardController@index')->name('dash');
-    Route::resource('user', UserController::class);
-//     Route::post('users/import', 'UserController@import')->name('users.import');
+    Route::resource('user', 'UserController');
+    Route::post('users/import', 'UserController@import')->name('users.import');
 //     Route::resource('pengaturan', 'PengaturanController');
 });
 
-// Route::group(['prefix' => AKADEMIK, 'as' => AKADEMIK . '.', 'middleware'=>['auth', 'Role:10']], function () {
+Route::group(['middleware'=>['auth', 'Role:akademik|mahasiswa|']], function () {
+    Route::resource('surat', 'Akademik\SuratController');
 //     Route::get('/', 'Akademik\DashboardController@index')->name('dash');
 
 //     Route::get('surat/pengajuan', 'Akademik\SuratController@pengajuan')->name('surat.pengajuan');
@@ -35,8 +38,7 @@ Route::group(['middleware'=>['auth', 'Role:admin']], function () {
 //     Route::put('surat/persetujuan/{id}', 'Akademik\SuratController@persetujuan')->name('surat.persetujuan');
 //     Route::put('surat/penyelesaian/{id}', 'Akademik\SuratController@penyelesaian')->name('surat.penyelesaian');
 
-//     Route::resource('surat', 'Akademik\SuratController');
-// });
+});
 
 // Route::group(['prefix' => MAHASISWA, 'as' => MAHASISWA . '.', 'middleware'=>['auth', 'Role:1']], function () {
 //     Route::get('/', 'Mahasiswa\DashboardController@index')->name('dash');

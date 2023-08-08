@@ -5,7 +5,7 @@
 
 <li class="nav-item mT-30">
     {{-- <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.dash') ? 'actived' : '' }}" href="{{ route(ADMIN . '.dash') }}"> --}}
-    <a class="sidebar-link" href="">
+    <a class="sidebar-link" href="{{ route('dashboard') }}">
         <span class="icon-holder">
             <i class="c-blue-500 ti-home"></i>
         </span>
@@ -14,7 +14,7 @@
 </li>
 <li class="nav-item">
     {{-- <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.users') ? 'actived' : '' }}" href="{{ route(ADMIN . '.users.index') }}"> --}}
-    <a class="sidebar-link" href="">
+    <a class="sidebar-link" href="{{ route('user.index') }}">
         <span class="icon-holder">
             <i class="c-brown-500 ti-user"></i>
         </span>
